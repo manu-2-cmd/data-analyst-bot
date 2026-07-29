@@ -19,10 +19,10 @@ from logger import log_run
 # aipipe.org is an OpenAI-compatible proxy — same OpenAI SDK, just a
 # different base_url and token.
 client = OpenAI(
-    api_key=os.environ["AIPIPE_TOKEN"],
-    base_url="https://aipipe.org/openrouter/v1",
+    api_key=os.getenv("GEMINI_API_KEY"),
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
-MODEL = "openai/gpt-4.1-nano"  # cheap/fast model routed through aipipe
+MODEL = "gemini-3.1-flash-lite"  # cheap/fast model routed through aipipe
 PUBLIC_LOG_URL = os.environ.get("PUBLIC_LOG_URL", "https://your-host/run.jsonl")
 
 SYSTEM_PROMPT = f"""You are a data analyst agent answering ONE data-analysis question
